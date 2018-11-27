@@ -14,11 +14,13 @@ BOT_NAME = 'cshome'
 SPIDER_MODULES = ['cshome.spiders']
 NEWSPIDER_MODULE = 'cshome.spiders'
 
-MYSQL_HOST = 'localhost'
+MYSQL_HOST = '192.168.2.207'
 MYSQL_USER = 'root'
-MYSQL_PASSWORD = None
+MYSQL_PASSWORD = 'root'
 MYSQL_DB = 'spider'
 MYSQL_CHARSET = 'utf8'
+
+ES_HOSTS = ['192.168.2.207']
 
 # Enables scheduling storing requests queue in redis.
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
@@ -26,7 +28,7 @@ SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 # Ensure all spiders share same duplicates filter through redis.
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
-REDIS_HOST = 'localhost'
+REDIS_HOST = '192.168.2.207'
 REDIS_PORT = 6379
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

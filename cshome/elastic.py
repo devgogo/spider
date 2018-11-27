@@ -2,7 +2,9 @@
 
 from elasticsearch import Elasticsearch
 
-es = Elasticsearch()
+from cshome.settings import ES_HOSTS
+
+es = Elasticsearch(hosts=ES_HOSTS)
 
 question_index = 'question'
 question_type = 'question'
@@ -62,7 +64,6 @@ def index_question(doc):
 
 def index_answer(doc):
     es.index(index=answer_index, doc_type=answer_type, id=doc['id'], body=doc)
-
 
 # delete_index()
 # create_index()
