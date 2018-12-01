@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
+import scrapy
 from scrapy import Request
 from scrapy.utils.markup import remove_tags
-from scrapy_redis.spiders import RedisSpider
 
 from cshome.items import Question, Answer
 from cshome.utils import text_filter, text_clear, text_strip
 
 
-class JiaQASpider(RedisSpider):
+class JiaQASpider(scrapy.Spider):
     name = 'jia_qa'
 
     def __init__(self, start=None, end=None, **kwargs):
