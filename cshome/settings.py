@@ -14,13 +14,13 @@ BOT_NAME = 'cshome'
 SPIDER_MODULES = ['cshome.spiders']
 NEWSPIDER_MODULE = 'cshome.spiders'
 
-MYSQL_HOST = '192.168.2.207'
+MYSQL_HOST = '192.168.1.41'
 MYSQL_USER = 'root'
 MYSQL_PASSWORD = 'root'
 MYSQL_DB = 'spider'
 MYSQL_CHARSET = 'utf8'
 
-ES_HOSTS = ['192.168.2.207']
+ES_HOSTS = ['http://192.168.1.41:9201']
 
 # Enables scheduling storing requests queue in redis.
 # SCHEDULER = "scrapy_redis.scheduler.Scheduler"
@@ -28,7 +28,7 @@ ES_HOSTS = ['192.168.2.207']
 # Ensure all spiders share same duplicates filter through redis.
 # DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
-REDIS_HOST = '192.168.2.207'
+REDIS_HOST = '192.168.3.31'
 REDIS_PORT = 6379
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -38,7 +38,7 @@ REDIS_PORT = 6379
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 16
+CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -82,10 +82,10 @@ CONCURRENT_REQUESTS = 16
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     # 'scrapy_redis.pipelines.RedisPipeline': 300,
-    # 'cshome.pipelines.FilterPipeline': 400,
+    'cshome.pipelines.FilterPipeline': 400,
     # 'cshome.pipelines.TokenizerPipeline': 500,
-    # 'cshome.pipelines.DatabasePipeline': 600,
-    # 'cshome.pipelines.ElasticSearchPipeline': 700,
+    'cshome.pipelines.DatabasePipeline': 600,
+    'cshome.pipelines.ElasticSearchPipeline': 700,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
