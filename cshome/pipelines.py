@@ -17,6 +17,9 @@ class FilterPipeline(object):
         if not text_filter(item.get('title')):
             raise DropItem('Invalid Item')
 
+        if item.get('body') and not text_filter(item.get('body')):
+            raise DropItem('Invalid Item')
+
         if 'title' not in item:
             raise DropItem('Invalid Item')
 
