@@ -21,7 +21,7 @@ class To8toQASpider(scrapy.Spider):
 
     def start_requests(self):
 
-        for num in range(1, 50000):
+        for num in range(4307438, 4307439):
             print('num is %s' % num)
             question_id = num
             form_data = {

@@ -23,10 +23,10 @@ MYSQL_CHARSET = 'utf8'
 ES_HOSTS = ['192.168.2.207']
 
 # Enables scheduling storing requests queue in redis.
-SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 
 # Ensure all spiders share same duplicates filter through redis.
-DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
 REDIS_HOST = '192.168.2.207'
 REDIS_PORT = 6379
@@ -81,11 +81,11 @@ CONCURRENT_REQUESTS = 16
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'scrapy_redis.pipelines.RedisPipeline': 300,
-    'cshome.pipelines.FilterPipeline': 400,
-    'cshome.pipelines.TokenizerPipeline': 500,
-    'cshome.pipelines.DatabasePipeline': 600,
-    'cshome.pipelines.ElasticSearchPipeline': 700,
+    # 'scrapy_redis.pipelines.RedisPipeline': 300,
+    # 'cshome.pipelines.FilterPipeline': 400,
+    # 'cshome.pipelines.TokenizerPipeline': 500,
+    # 'cshome.pipelines.DatabasePipeline': 600,
+    # 'cshome.pipelines.ElasticSearchPipeline': 700,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

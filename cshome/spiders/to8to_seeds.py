@@ -11,7 +11,7 @@ class To8toSeedsSpider(scrapy.Spider):
     base_url = 'http://www.to8to.com/ask/'
 
     def start_requests(self):
-        for num in range(8009233, 8592044):
+        for num in range(8225498, 8592044):
             url = 'http://www.to8to.com/ask/k%s.html' % num
             yield self.make_requests_from_url(url)
 

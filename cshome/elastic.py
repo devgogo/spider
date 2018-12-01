@@ -65,5 +65,27 @@ def index_question(doc):
 def index_answer(doc):
     es.index(index=answer_index, doc_type=answer_type, id=doc['id'], body=doc)
 
+
+def search_question(query):
+    ret = es.search(index=question_index, body=query)
+
+    return ret['hits']['hits']
+
+
+def update_question(question_id, doc):
+    es.update(index=question_index, doc_type=question_type, id=question_id, body=doc)
+
+
+def reset_question_flag():
+    es.update_by_query(index=question_index, doc_type=question_type, body={
+        "script": {
+            "inline": "ctx._source.remove('flag')",
+            "lang": "painless"
+        },
+        "query": {
+            "exists": {"field": "flag"}
+        }
+    })
+
 # delete_index()
 # create_index()
