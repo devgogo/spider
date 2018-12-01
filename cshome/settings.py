@@ -20,7 +20,7 @@ MYSQL_PASSWORD = 'root'
 MYSQL_DB = 'spider'
 MYSQL_CHARSET = 'utf8'
 
-ES_HOSTS = ['http://192.168.1.41:9201']
+ES_HOSTS = ['http://192.168.1.41:9200']
 
 # Enables scheduling storing requests queue in redis.
 # SCHEDULER = "scrapy_redis.scheduler.Scheduler"
