@@ -19,10 +19,21 @@ class To8toQASpider(scrapy.Spider):
 
     url = 'https://mobileapi.to8to.com/index.php'
 
+    def __init__(self, start=None, end=None, **kwargs):
+
+        self.start = int(start)
+        self.end = int(end)
+
+        super().__init__(**kwargs)
+
     def start_requests(self):
 
-        for num in range(1, 8500000):
-            print('num is %s' % num)
+        self.logger.info("**********")
+        self.logger.info('start %d', self.start)
+        self.logger.info('end %d', self.end)
+
+        for num in range(self.start, self.end):
+            self.logger.info('id is %s' % num)
             question_id = num
             form_data = {
                 'action': 'QuestionDetail',
@@ -51,7 +62,7 @@ class To8toQASpider(scrapy.Spider):
         url = 'http://www.to8to.com/ask/k%s.html' % response.meta['question_id']
 
         if len(r['data']['ask']) == 0:
-            print("No Data")
+            self.logger.warn("No Data")
             return
 
         question_data = r['data']['ask'][0]

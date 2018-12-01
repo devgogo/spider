@@ -10,8 +10,15 @@ from cshome.utils import text_filter, text_clear, text_strip
 class JiaQASpider(RedisSpider):
     name = 'jia_qa'
 
+    def __init__(self, start=None, end=None, **kwargs):
+
+        self.start = int(start)
+        self.end = int(end)
+
+        super().__init__(**kwargs)
+
     def start_requests(self):
-        for num in range(1, 1500000):
+        for num in range(self.start, self.end):
             url = 'https://ask.jia.com/a-%s.html' % num
             yield self.make_requests_from_url(url)
 
